@@ -2,11 +2,10 @@ import streamlit as st
 
 st.set_page_config(page_title="3D Ad Generator", layout="centered")
 
-# تعديل اتجاه النص ودعم اللغة العربية مع الـ 3D بشكل صحيح
 st.markdown("""
     <div style="direction: rtl; text-align: right;">
-        <h1 style="color: #31333F;">منصة توليد إعلانات الـ 3D بالذكاء الاصطناعي</h1>
-        <p style="color: #31333F; font-size: 18px;">أدخل فكرة إعلانك لتوليد السيناريو والمشاهد تلقائياً.</p>
+        <h1>منصة توليد إعلانات الـ 3D بالذكاء الاصطناعي</h1>
+        <p>أدخل فكرة إعلانك لتوليد السيناريو والمشاهد تلقائياً.</p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -17,17 +16,28 @@ duration = st.slider("المدة التقريبية (ثوانٍ):", min_value=5,
 if st.button("إنشاء الإعلان"):
     if idea:
         with st.spinner("جاري تحليل الفكرة وتوليد السيناريو والأصول..."):
-            st.markdown('<div style="direction: rtl; text-align: right;">', unsafe_allow_html=True)
-            st.subheader("1. السيناريو المُولد:")
-            st.write("مشهد 1: لقطة واسعة لشاطئ مشمس مع زجاجة عصير باردة تتصاعد منها قطرات الماء.")
-            st.write("مشهد 2: حركة سريعة للكاميرا تقترب من الشعار.")
-            
-            st.subheader("2. الأصول ثلاثية الأبعاد:")
-            st.write("تم استدعاء مجسم زجاجة العصير بنجاح.")
-            
-            st.success("تم الانتهاء من إعداد خط الإنتاج المبدئي!")
-            st.info("لجعل الرابط ينتج فيديوهات حقيقية، قم بربط هذا الملف بمفاتيح الـ API الخاصة بك.")
-            st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown("""
+            <div style="direction: rtl; text-align: right; unicode-bidi: plaintext;">
+                <h3>1. السيناريو المُولد:</h3>
+                <p>مشهد 1: لقطة واسعة لشاطئ مشمس مع زجاجة عصير باردة تتصاعد منها قطرات الماء.</p>
+                <p>مشهد 2: حركة سريعة للكاميرا تقترب من الشعار.</p>
+                
+                <h3>2. الأصول ثلاثية الأبعاد:</h3>
+                <p>تم استدعاء مجسم زجاجة العصير بنجاح.</p>
+                
+                <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-top: 10px; font-weight: bold;">
+                    تم الانتهاء من إعداد خط الإنتاج المبدئي!
+                </div>
+                
+                <div style="background-color: #cce5ff; color: #004085; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                    لجعل الرابط ينتج فيديوهات حقيقية، قم بربط هذا الملف بمفاتيح الـ API الخاصة بك.
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
     else:
-        st.warning("يرجى كتابة فكرة الإعلان أولاً.")
+        st.markdown("""
+        <div style="direction: rtl; text-align: right; color: #856404; background-color: #fff3cd; padding: 10px; border-radius: 5px;">
+            يرجى كتابة فكرة الإعلان أولاً.
+        </div>
+        """, unsafe_allow_html=True)
         
